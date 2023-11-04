@@ -16,6 +16,11 @@ function initHouseEnvironment() {
     wall3.position.set(0, 1, -9.95);
     scene.add(wall3);
 
+    let wall4 = wall1.clone();
+    wall4.geometry = new THREE.BoxGeometry(20, 2, 0.1);
+    wall4.position.set(0, 1, 9.95);
+    scene.add(wall4);
+
     camera.position.set(0, 2, 10);
     camera.lookAt(0, 0, 0);
 

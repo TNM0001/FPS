@@ -21,12 +21,12 @@ function init() {
     const textureLoader = new THREE.TextureLoader();
     let wallTexture, floorTexture;
 
-    textureLoader.load('brick.jpg', function (texture) {
+    textureLoader.load('https://raw.githubusercontent.com/TNM0001/assets/main/brick.jpg', function (texture) {
         wallTexture = texture;
         loadAssets();
     });
 
-    textureLoader.load('grass.jpg', function (texture) {
+    textureLoader.load('https://raw.githubusercontent.com/TNM0001/assets/main/grass.jpg', function (texture) {
         floorTexture = texture;
         loadAssets();
     });
@@ -42,15 +42,18 @@ function init() {
             const wall1 = new THREE.Mesh(wallGeometry, wallMaterial);
             const wall2 = new THREE.Mesh(wallGeometry, wallMaterial);
             const wall3 = new THREE.Mesh(wallGeometry, wallMaterial);
+            const wall4 = new THREE.Mesh(wallGeometry, wallMaterial);
             const floor = new THREE.Mesh(floorGeometry, floorMaterial);
 
             wall1.position.set(0, 5, -10);
             wall2.position.set(0, 5, 10);
             wall3.position.set(-10, 5, 0);
             wall3.rotation.y = Math.PI / 2;
+            wall4.position.set(10, 5, 0);
+            wall4.rotation.y = Math.PI / 2;
             floor.position.set(0, -0.05, 0);
 
-            scene.add(wall1, wall2, wall3, floor);
+            scene.add(wall1, wall2, wall3, wall4, floor);
 
             const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
             scene.add(ambientLight);
